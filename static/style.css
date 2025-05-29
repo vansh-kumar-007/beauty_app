@@ -156,7 +156,7 @@ body:after {
 
 .contact-footer {
   width: 100vw;
-  background: #f7f7fa;
+  background: transparent;
   padding: 20px 0 10px 0;
   text-align: center;
   border-top: 1px solid #ececec;
