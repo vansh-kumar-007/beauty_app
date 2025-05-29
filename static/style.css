@@ -17,6 +17,7 @@ body {
     width: 90vw;
     text-align: center;
     position: relative;
+    margin-bottom: 90px; /* Prevents footer overlap */
 }
 
 h1 {
@@ -151,4 +152,49 @@ body:after {
   28%        { transform: rotate(-45deg) scale(1);}
   42%        { transform: rotate(-45deg) scale(1.12);}
   70%        { transform: rotate(-45deg) scale(1);}
+}
+
+.contact-footer {
+  width: 100vw;
+  background: #f7f7fa;
+  padding: 20px 0 10px 0;
+  text-align: center;
+  border-top: 1px solid #ececec;
+  font-size: 1.1em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.contact-icon img {
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+  filter: grayscale(0.6);
+  transition: filter 0.2s, transform 0.2s;
+}
+.contact-icon img:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+/* Responsive footer on mobile */
+@media (max-width: 480px) {
+  .contact-footer {
+    font-size: 0.96em;
+    padding: 14px 0 8px 0;
+  }
+  .contact-icon img {
+    width: 22px;
+    height: 22px;
+  }
 }
