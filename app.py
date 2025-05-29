@@ -64,6 +64,9 @@ def upload():
             "right_nostril": 326,
             "left_mouth": 61,
             "right_mouth": 291,
+            "left_eyebrow": 105,
+            "right_eyebrow": 334,
+            "under_lips": 17
         }
 
         coords = {name: (int(lm[idx].x * w), int(lm[idx].y * h)) for name, idx in points.items()}
@@ -76,6 +79,10 @@ def upload():
         nose_length = euclidean(coords["nose_bridge"], coords["nose_tip"])
         nose_width = euclidean(coords["left_nostril"], coords["right_nostril"])
         mouth_width = euclidean(coords["left_mouth"], coords["right_mouth"])
+        brow_to_eye = (euclidean(coords["left_eyebrow"], coords["left_eye_inner"]) + euclidean(coords["right_eyebrow"], coords["right_eye_inner"])) / 2
+        eye_to_lip = euclidean(((coords["left_eye_inner"][0] + coords["right_eye_inner"][0])//2, (coords["left_eye_inner"][1] + coords["right_eye_inner"][1])//2), coords["under_lips"])
+        nose_to_chin = euclidean(coords["nose_tip"], coords["chin"])
+        forehead_proportion = euclidean(coords["forehead"], coords["left_eye_inner"]) / face_height
 
         # Golden Ratio
         PHI = 1.618
@@ -87,31 +94,34 @@ def upload():
         scores = []
         details = []
 
-        # 1. Face Height / Face Width
-        s, val = ratio_score(face_height, face_width)
-        scores.append(s)
-        details.append({"name": "Face Height / Face Width", "value": val, "score": s})
+        def add_ratio(name, A, B):
+            s, val = ratio_score(A, B)
+            scores.append(s)
+            details.append({"name": name, "value": val, "score": s})
 
-        # 2. Eye Width / Inter-Eye Distance
-        s, val = ratio_score(eye_width, inter_eye)
-        scores.append(s)
-        details.append({"name": "Eye Width / Inter-Eye Distance", "value": val, "score": s})
+        # Base ratios
+        add_ratio("Face Height / Face Width", face_height, face_width)
+        add_ratio("Eye Width / Inter-Eye Distance", eye_width, inter_eye)
+        add_ratio("Nose Length / Nose Width", nose_length, nose_width)
+        add_ratio("Mouth Width / Nose Width", mouth_width, nose_width)
 
-        # 3. Nose Length / Nose Width
-        s, val = ratio_score(nose_length, nose_width)
-        scores.append(s)
-        details.append({"name": "Nose Length / Nose Width", "value": val, "score": s})
-
-        # 4. Mouth Width / Nose Width
-        s, val = ratio_score(mouth_width, nose_width)
-        scores.append(s)
-        details.append({"name": "Mouth Width / Nose Width", "value": val, "score": s})
+        # Additional ratios
+        add_ratio("Eyebrow to Eye / Eye Width", brow_to_eye, eye_width)
+        add_ratio("Eye to Lip / Nose Length", eye_to_lip, nose_length)
+        add_ratio("Nose to Chin / Nose Length", nose_to_chin, nose_length)
+        add_ratio("Forehead Height / Face Height", euclidean(coords["forehead"], coords["left_eye_inner"]), face_height)
 
         harmony = round(sum(scores) / len(scores), 2)
 
-        # Draw landmarks for feedback (optional)
+        # Draw landmarks
         for pt in coords.values():
             cv2.circle(img, pt, 3, (0, 255, 0), -1)
+
+        # Golden ratio grid
+        golden_lines = [int(h * (1 / PHI**2)), int(h * (1 / PHI)), int(h * (1 - 1 / PHI))]
+        for y in golden_lines:
+            cv2.line(img, (0, y), (w, y), (255, 215, 0), 1)
+
         out_path = os.path.join(UPLOAD_FOLDER, "landmarked_" + file.filename)
         cv2.imwrite(out_path, img)
 
