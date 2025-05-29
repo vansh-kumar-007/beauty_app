@@ -1,0 +1,154 @@
+body {
+    background: linear-gradient(135deg, #fbeffb 0%, #ffe7e0 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255,255,255,0.94);
+    border-radius: 22px;
+    box-shadow: 0px 2px 20px rgba(220, 110, 170, 0.09);
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    max-width: 340px;
+    width: 90vw;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    color: #e05fa0;
+    font-size: 2rem;
+    margin-bottom: 0.3em;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #a36fff;
+    margin-bottom: 1em;
+    font-size: 1.05em;
+}
+
+.upload-label {
+    display: inline-block;
+    background: #fff0f7;
+    border: 2px dashed #e8aacf;
+    color: #d46cb9;
+    padding: 1em 1.2em;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 1em;
+}
+.upload-label input[type="file"] {
+    display: none;
+}
+.upload-label span {
+    font-size: 1.1em;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+#preview-container {
+    margin-bottom: 1em;
+    min-height: 120px;
+}
+
+#photo-preview {
+    max-width: 90%;
+    max-height: 180px;
+    border-radius: 16px;
+    box-shadow: 0 2px 18px rgba(180, 98, 160, 0.07);
+    margin-top: 6px;
+}
+
+#analyze-btn {
+    background: linear-gradient(90deg, #e688d4 0%, #a36fff 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 0.8em 2em;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.7em;
+    box-shadow: 0 2px 5px rgba(220, 110, 170, 0.06);
+    transition: background 0.2s;
+}
+#analyze-btn:hover {
+    background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+    color: #b03e8e;
+}
+
+#result {
+    margin-top: 1.5em;
+    font-size: 1.1em;
+    color: #673c7e;
+    min-height: 40px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.4rem 0.4rem 1.4rem 0.4rem;
+    }
+    h1 {
+        font-size: 1.25rem;
+    }
+    .subtitle {
+        font-size: 0.98em;
+    }
+}
+
+body:after {
+    content: "💖✨";
+    font-size: 3rem;
+    position: fixed;
+    right: 1.4rem;
+    bottom: 1.2rem;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Loader heart animation */
+/* Improved classic beating heart loader */
+.loader-heart {
+  width: 40px;
+  height: 36px;
+  position: relative;
+  margin: 0 auto;
+  display: inline-block;
+  background: #e05fa0;
+  transform: rotate(-45deg) scale(1);
+  animation: heartbeat 1s infinite;
+}
+
+.loader-heart::before,
+.loader-heart::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 36px;
+  background: #e05fa0;
+  border-radius: 50%;
+}
+
+.loader-heart::before {
+  top: -20px;
+  left: 0;
+}
+
+.loader-heart::after {
+  left: 20px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0%, 100%   { transform: rotate(-45deg) scale(1);}
+  14%        { transform: rotate(-45deg) scale(1.15);}
+  28%        { transform: rotate(-45deg) scale(1);}
+  42%        { transform: rotate(-45deg) scale(1.12);}
+  70%        { transform: rotate(-45deg) scale(1);}
+}
