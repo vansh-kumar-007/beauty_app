@@ -1,6 +1,6 @@
 # ✨ Unveil Your Divine Beauty ✨
+<img src="[https://raw.githubusercontent.com/vansh-kumar-007/your-repo-name/main/screenshot.png](https://github.com/vansh-kumar-007/beauty_app/blob/main/Screenshot%20from%202025-05-29%2021-47-34.png)" alt="App Screenshot" width="800"/>
 
-<img src="https://github.com/vansh-kumar-007/beauty_app/blob/main/Screenshot%20from%202025-05-29%2021-47-34.png" alt="App Screenshot" width="400"/>
 
 Welcome to **Unveil Your Divine Beauty**!  
 This fun and interactive web app analyzes your facial features, compares them to the Golden Ratio, and unveils your unique harmony score.  
@@ -18,8 +18,8 @@ Discover how your natural beauty echoes the wonders of mathematics, with a sprin
 - **Landmark Visualization**: View your face with detected landmarks for extra insight.
 - **Responsive & Pretty UI**: Works beautifully on desktop and mobile, with a soft pastel theme.
 - **Footer with Love**: Made by [Vansh Kumar](https://www.instagram.com/vansh_kumar_369/)  
-  [![Instagram](https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg)](https://www.instagram.com/vansh_kumar_369/) 
-  [![LinkedIn](https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg)](https://www.linkedin.com/in/vanshkumar007/)
+  [![Instagram](https://www.instagram.com/vansh_kumar_369/) 
+  [![LinkedIn]](https://www.linkedin.com/in/vanshkumar007/)
 
 ---
 
@@ -36,15 +36,16 @@ Discover how your natural beauty echoes the wonders of mathematics, with a sprin
 
 ## 🖼️ Screenshot
 
-> Replace this link with your actual screenshot after deploying or running locally.
 
-![App Screenshot](https://raw.githubusercontent.com/vansh-kumar-007/your-repo-name/main/screenshot.png)
+
+![App Screenshot]([https://raw.githubusercontent.com/vansh-kumar-007/your-repo-name/main/screenshot.png](https://github.com/vansh-kumar-007/beauty_app/blob/main/Screenshot%20from%202025-05-29%2021-47-34.png))
 
 ---
 
 ## 🎬 Demo Animation
 
-![Confetti Animation](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGRkcjBzY28xN3IwbzZjcjFjc3JjM3kybWc0NzlmbzZ1emh0N3Z4cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vk7VesvyZEwuU/giphy.gif)
+![Confetti Animation]
+(https://github.com/vansh-kumar-007/beauty_app/blob/main/ezgif-73d56c894d6f79.gif)
 
 ---
 
